@@ -47,6 +47,7 @@ npm run dev
 - [Ubuntu VPS Deployment](./UBUNTU_SETUP.md)
 - [Self Hosting Guide](./SELF_HOSTING.md)
 - [Deployment Guide](./DEPLOYMENT.md)
+- [Build Error Fix](./BUILD_FIX.md) ⚠️ **VPS এ build error হলে দেখুন**
 
 ### 🔐 Admin Account Creation
 
@@ -122,6 +123,25 @@ Run:
 ```bash
 node create-admin.js
 ```
+
+## 🔧 VPS Build Error Fix
+
+যদি VPS এ build করার সময় error আসে:
+
+```bash
+# Quick fix command
+npm run fix:build
+```
+
+Or manually:
+```bash
+rm -rf node_modules package-lock.json .next
+npm cache clean --force
+npm install
+npm run build
+```
+
+বিস্তারিত: [BUILD_FIX.md](./BUILD_FIX.md)
 
 ### 🔧 Tech Stack
 

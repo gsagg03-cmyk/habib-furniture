@@ -14,7 +14,8 @@
     "setup:nginx": "bash scripts/setup-nginx.sh",
     "setup:cron": "bash scripts/setup-cron.sh",
     "health-check": "bash scripts/health-check.sh",
-    "create:admin": "node create-admin.js"
+    "create:admin": "node create-admin.js",
+    "fix:build": "bash scripts/fix-build.sh"
   },
   "prisma": {
     "seed": "tsx prisma/seed.ts"

@@ -170,8 +170,15 @@ echo -e "${GREEN}✅ Certbot installed${NC}"
 # ================================================
 echo -e "\n${YELLOW}[10/10] Setting up application...${NC}"
 
-# Install dependencies
+# Install dependencies (including devDependencies for build)
+echo -e "${YELLOW}Installing all dependencies...${NC}"
 npm install
+if [ $? -ne 0 ]; then
+    echo -e "${RED}❌ npm install failed, trying cache clean...${NC}"
+    rm -rf node_modules package-lock.json
+    npm cache clean --force
+    npm install
+fi
 
 # Generate secure AUTH_SECRET
 AUTH_SECRET=$(openssl rand -hex 32)

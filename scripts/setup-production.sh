@@ -58,7 +58,14 @@ echo -e "\n${YELLOW}Installing dependencies...${NC}"
 npm install
 if [ $? -ne 0 ]; then
     echo -e "${RED}❌ npm install failed${NC}"
-    exit 1
+    echo -e "${YELLOW}Trying to clear cache and reinstall...${NC}"
+    rm -rf node_modules package-lock.json
+    npm cache clean --force
+    npm install
+    if [ $? -ne 0 ]; then
+        echo -e "${RED}❌ npm install failed again${NC}"
+        exit 1
+    fi
 fi
 echo -e "${GREEN}✅ Dependencies installed${NC}"
 
