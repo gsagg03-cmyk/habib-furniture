@@ -47,10 +47,10 @@ export default async function HomePage() {
             <div className="space-y-6">
               <h1 className="text-4xl md:text-6xl font-bold text-gray-900 leading-tight">
                 নতুন সংগ্রহে,<br />ঘর সাজাবে<br />
-                <span className="text-red-600">রিগাল ফার্নিচারে</span>
+                <span className="text-red-600">হাবিব ফার্নিচারে</span>
               </h1>
               <p className="text-lg text-gray-600">
-                Transform your home with premium quality furniture
+                আপনার স্বপ্নের ঘর সাজান প্রিমিয়াম মানের ফার্নিচার দিয়ে
               </p>
               <div className="flex gap-4">
                 <Link

@@ -13,7 +13,8 @@
     "setup:ubuntu": "bash scripts/ubuntu-setup.sh",
     "setup:nginx": "bash scripts/setup-nginx.sh",
     "setup:cron": "bash scripts/setup-cron.sh",
-    "health-check": "bash scripts/health-check.sh"
+    "health-check": "bash scripts/health-check.sh",
+    "create:admin": "node create-admin.js"
   },
   "prisma": {
     "seed": "tsx prisma/seed.ts"
