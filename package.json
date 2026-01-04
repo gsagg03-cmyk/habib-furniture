@@ -15,7 +15,8 @@
     "setup:cron": "bash scripts/setup-cron.sh",
     "health-check": "bash scripts/health-check.sh",
     "create:admin": "node create-admin.js",
-    "fix:build": "bash scripts/fix-build.sh"
+    "fix:build": "bash scripts/fix-build.sh",
+    "fix:emergency": "bash scripts/emergency-fix.sh"
   },
   "prisma": {
     "seed": "tsx prisma/seed.ts"

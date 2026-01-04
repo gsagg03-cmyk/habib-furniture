@@ -46,6 +46,11 @@ if [ $? -ne 0 ]; then
     echo -e "${RED}❌ npm install failed${NC}"
     exit 1
 fi
+
+# Force rebuild node_modules structure
+echo -e "${YELLOW}Rebuilding node_modules...${NC}"
+npm rebuild
+
 echo -e "${GREEN}✅ Dependencies installed${NC}"
 
 # Verify critical packages
@@ -59,9 +64,19 @@ done
 
 if [ -n "$MISSING" ]; then
     echo -e "${RED}❌ Missing packages:$MISSING${NC}"
-    echo -e "${YELLOW}Installing missing packages...${NC}"
-    npm install $MISSING
+    echo -e "${YELLOW}Installing missing packages explicitly...${NC}"
+    npm install tailwindcss@latest postcss@latest autoprefixer@latest typescript@latest --save-dev
+    npm install @prisma/client@latest
+    npm rebuild
 fi
+
+# Double check tailwindcss is accessible
+if ! node -e "require('tailwindcss')" 2>/dev/null; then
+    echo -e "${RED}❌ tailwindcss still not accessible, forcing reinstall...${NC}"
+    npm install --force tailwindcss postcss autoprefixer
+    npm rebuild tailwindcss postcss autoprefixer
+fi
+
 echo -e "${GREEN}✅ All build packages present${NC}"
 
 # Build application
