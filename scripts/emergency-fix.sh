@@ -54,22 +54,22 @@ npm cache verify
 
 # Fresh install with specific versions
 echo -e "${YELLOW}[5/9] Installing core dependencies...${NC}"
-npm install next@15.1.0 react@19.0.0 react-dom@19.0.0 --save
-npm install @prisma/client@5.22.0 bcryptjs@2.4.3 server-only@0.0.1 --save
+npm install next@^15.1.0 react@^19.0.0 react-dom@^19.0.0 --save
+npm install @prisma/client@^5.22.0 bcryptjs@^2.4.3 server-only@^0.0.1 --save
 
 # Install dev dependencies explicitly
 echo -e "${YELLOW}[6/9] Installing build dependencies...${NC}"
 npm install --save-dev \
-  tailwindcss@3.4.0 \
-  postcss@8.4.0 \
-  autoprefixer@10.4.0 \
-  typescript@5.6.0 \
-  prisma@5.22.0 \
-  tsx@4.7.0 \
-  @types/node@22.0.0 \
-  @types/react@19.0.0 \
-  @types/react-dom@19.0.0 \
-  @types/bcryptjs@2.4.6
+  tailwindcss@^3.4.0 \
+  postcss@^8.4.0 \
+  autoprefixer@^10.4.0 \
+  typescript@^5.3.0 \
+  prisma@^5.22.0 \
+  tsx@^4.7.0 \
+  @types/node@^22.0.0 \
+  @types/react@^19.0.0 \
+  @types/react-dom@^19.0.0 \
+  @types/bcryptjs@^2.4.6
 
 # Rebuild everything
 echo -e "${YELLOW}[7/9] Rebuilding all packages...${NC}"
