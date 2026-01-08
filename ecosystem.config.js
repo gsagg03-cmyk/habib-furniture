@@ -1,11 +1,7 @@
-#!/bin/bash
-
-# ================================================
-# PM2 Ecosystem Configuration
-# For Ubuntu VPS Production
-# ================================================
-
-# This file is used by PM2 to manage the application
+// ================================================
+// PM2 Ecosystem Configuration
+// For Ubuntu VPS Production
+// ================================================
 
 module.exports = {
   apps: [{
