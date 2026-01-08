@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { prisma } from "../../lib/prisma";
-import { MobileSidebar } from "./MobileSidebar";
 import { ProductCard } from "../../components/ProductCard";
 
 function formatTaka(value: number | string) {
@@ -76,7 +75,6 @@ export default async function ProductsPage({
 
   return (
     <div className="min-h-screen bg-white">
-      <MobileSidebar />
       {/* Breadcrumb */}
       <div className="bg-gray-50 border-b">
         <div className="max-w-7xl mx-auto px-4 py-4">

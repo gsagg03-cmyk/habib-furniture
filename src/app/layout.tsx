@@ -6,6 +6,7 @@ import "./globals.css";
 import { AnalyticsTracker } from "./analytics/track";
 import { CartProvider } from "../context/CartContext";
 import Header from "../components/Header";
+import { MobileSidebar } from "../components/MobileSidebar";
 
 function Footer() {
   return (
@@ -151,6 +152,7 @@ export default function RootLayout({
         <CartProvider>
           <AnalyticsTracker />
           <Header />
+          <MobileSidebar />
           {children}
           <Footer />
         </CartProvider>
