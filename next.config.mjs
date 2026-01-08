@@ -19,7 +19,7 @@ if (allowedOrigins.length === 0 && isProd) {
 const nextConfig = {
   experimental: {
     serverActions: {
-      bodySizeLimit: '10mb', // Increased for image uploads
+      bodySizeLimit: '50mb', // Increased for image uploads
       // Explicitly list allowed origins; configure NEXT_ALLOWED_ORIGINS (comma-separated) in production
       allowedOrigins,
     },
