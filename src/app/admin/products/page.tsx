@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { prisma } from "../../../lib/prisma";
+import { ToggleProductButton } from "./ToggleProductButton";
 
 function formatTaka(value: number | string) {
   const num = Number(value);
@@ -160,12 +161,10 @@ export default async function ProductsPage() {
                         >
                           Edit
                         </Link>
-                        <button
-                          type="button"
-                          className="px-4 py-2 text-sm font-semibold text-red-700 bg-white border border-red-300 rounded hover:bg-red-50 transition"
-                        >
-                          Disable
-                        </button>
+                        <ToggleProductButton
+                          productId={product.id}
+                          isActive={product.isActive}
+                        />
                       </div>
                     </td>
                   </tr>
