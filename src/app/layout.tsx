@@ -107,93 +107,6 @@ function Footer() {
   );
 }
 
-function MobileMenu() {
-  const [isOpen, setIsOpen] = React.useState(false);
-
-  React.useEffect(() => {
-    const handleToggle = () => setIsOpen(prev => !prev);
-    window.addEventListener('toggleSidebar', handleToggle);
-    return () => window.removeEventListener('toggleSidebar', handleToggle);
-  }, []);
-
-  React.useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
-    }
-    return () => {
-      document.body.style.overflow = 'unset';
-    };
-  }, [isOpen]);
-
-  if (!isOpen) return null;
-
-  const menuItems = [
-    { href: '/products', label: 'সকল পণ্য', icon: '🏠' },
-    { href: '/products?category=bedroom', label: 'বেডরুম', icon: '🛏️' },
-    { href: '/products?category=living', label: 'লিভিং রুম', icon: '🛋️' },
-    { href: '/products?category=dining', label: 'ডাইনিং', icon: '🍽️' },
-    { href: '/products?category=office', label: 'অফিস', icon: '💼' },
-    { href: '/products?category=kitchen', label: 'রান্নাঘরের ক্যাবিনেট', icon: '🍳' },
-    { href: '/products?category=mattress', label: 'ম্যাট্রেস', icon: '🛏️' },
-    { href: '#', label: 'যোগাযোগ', icon: '📞' },
-    { href: '/admin/login', label: 'আমার প্রোফাইল', icon: '👤' },
-  ];
-
-  return (
-    <>
-      {/* Backdrop */}
-      <div
-        className="fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden"
-        onClick={() => setIsOpen(false)}
-      />
-      
-      {/* Sidebar */}
-      <div className="fixed top-0 left-0 h-full w-80 bg-white z-50 shadow-2xl overflow-y-auto lg:hidden">
-        <div className="p-6">
-          <div className="flex items-center justify-between mb-8">
-            <h2 className="text-2xl font-bold text-gray-800">মেনু</h2>
-            <button
-              onClick={() => setIsOpen(false)}
-              className="p-2 hover:bg-gray-100 rounded-lg transition"
-              aria-label="Close menu"
-            >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </button>
-          </div>
-
-          <nav>
-            {menuItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                onClick={() => setIsOpen(false)}
-                className="flex items-center gap-3 py-3 px-4 hover:bg-gray-100 rounded-lg transition mb-1"
-              >
-                <span className="text-2xl">{item.icon}</span>
-                <span className="text-gray-700 font-medium">{item.label}</span>
-              </Link>
-            ))}
-          </nav>
-
-          <div className="mt-8 pt-6 border-t">
-            <p className="text-sm text-gray-600 mb-2">কাস্টমার সাপোর্ট</p>
-            <a href="tel:+8801740649667" className="text-lg font-semibold text-red-600 block">
-              01740649667
-            </a>
-            <a href="tel:+8801717008714" className="text-lg font-semibold text-red-600 block">
-              01717008714
-            </a>
-          </div>
-        </div>
-      </div>
-    </>
-  );
-}
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -238,7 +151,6 @@ export default function RootLayout({
         <CartProvider>
           <AnalyticsTracker />
           <Header />
-          <MobileMenu />
           {children}
           <Footer />
         </CartProvider>
