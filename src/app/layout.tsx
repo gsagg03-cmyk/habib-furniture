@@ -103,14 +103,14 @@ function Footer() {
         <div className="border-t border-gray-800 pt-6 text-center text-sm">
           <p>কপিরাইট © {new Date().getFullYear()} হাবিব ফার্নিচার। সর্বস্বত্ব সংরক্ষিত।</p>
           <p className="mt-2 text-gray-500">
-            ডেভেলপড বাই{' '}
+            Developed by{' '}
             <a 
               href="https://www.facebook.com/shahid.rahman111" 
               target="_blank" 
               rel="noopener noreferrer"
               className="text-red-400 hover:text-red-300 transition"
             >
-              শহীদ রহমান
+              Shahid Rahman
             </a>
           </p>
         </div>
